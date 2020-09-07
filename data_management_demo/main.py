@@ -1,7 +1,8 @@
-from AbstractPackages import Package
-from PackageExceptions import PackageError
-from PackageFactory import PackageFactory
-from LightsheetPackages import LightsheetBrainVasculatureScan
+from packages.AbstractPackges import Package
+from packages.PackageExceptions import PackageError
+from packages.PackageFactory import PackageFactory
+from packages.LightsheetPackages import LightsheetBrainVasculatureScan
+
 
 
 def main():

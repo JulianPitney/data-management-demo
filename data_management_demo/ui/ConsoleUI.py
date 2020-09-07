@@ -1,7 +1,7 @@
-import AbstractPackages as AP
-import LightsheetPackages as LP
-from PackageFactory import PackageFactory
-import config
+from packages import AbstractPackages as AP
+from packages import LightsheetPackages as LP
+from packages.PackageFactory import PackageFactory
+from data_management_demo import config
 from consolemenu import ConsoleMenu, SelectionMenu
 from consolemenu.items import SubmenuItem, FunctionItem
 from pathlib import Path
