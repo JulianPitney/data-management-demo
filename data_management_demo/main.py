@@ -1,23 +1,11 @@
-from packages.AbstractPackges import Package
-from packages.PackageExceptions import PackageError
-from packages.PackageFactory import PackageFactory
-from packages.LightsheetPackages import LightsheetBrainVasculatureScan
+import toml
+from pathlib import Path
 
-
+configPath = Path(__file__).parent.joinpath('config.toml')
+config = toml.load(configPath)
 
 def main():
-
-# Create new package
-    packageFactory = PackageFactory()
-    scan = packageFactory.create_package(LightsheetBrainVasculatureScan)
-
-
-# Load existing package
-"""
-    scan = Package.load_package("C:\Projects\Microscopy-Processing\packages\e0cae438-9ea7-4839-8ac4-7fb8dffdb263\e0cae438-9ea7-4839-8ac4-7fb8dffdb263.p")
-    for key, val in scan.attrDict.items():
-        print(str(key) + ": " + str(val))
-"""
+    from .ui import ConsoleUI
 
 if __name__ == '__main__':
     main()

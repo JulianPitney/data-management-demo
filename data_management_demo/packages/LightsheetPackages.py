@@ -1,6 +1,6 @@
-from packages.AbstractPackages import DataPackage, AnalysisPackage
-from packages.PackageExceptions import PackageError
-from utilities.zStackUtils import load_stack, max_project, save_and_reload_maxproj, save_png
+from ..packages.AbstractPackages import DataPackage, AnalysisPackage
+from ..packages.PackageExceptions import PackageError
+from ..utilities.zStackUtils import load_stack, max_project, save_and_reload_maxproj, save_png
 from pathlib import Path
 
 

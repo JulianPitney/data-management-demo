@@ -1,7 +1,7 @@
-from packages import AbstractPackages as AP
-from packages import LightsheetPackages as LP
-from packages.PackageFactory import PackageFactory
-from data_management_demo import config
+from ..packages import AbstractPackages as AP
+from ..packages import LightsheetPackages as LP
+from ..packages.PackageFactory import PackageFactory
+from ..main import config
 from consolemenu import ConsoleMenu, SelectionMenu
 from consolemenu.items import SubmenuItem, FunctionItem
 from pathlib import Path
@@ -16,7 +16,7 @@ def load_packages_directory():
     packagePaths = []
     packages = []
     displayNames = []
-    p = Path('../packages/')
+    p = Path(config['data-destination']['PACKAGE_DIR'])
     for child in p.iterdir():
         scanPath = Path(child.joinpath(child.stem + ".p")).as_posix()
         print(scanPath)
@@ -45,11 +45,11 @@ def download_scan(scanUniqueID):
     # switching to False is any of them fail.
     downloadSuccess = True
 
-    if not Path.is_dir(Path(config.DOWNLOADS_DIR)):
+    if not Path.is_dir(Path(config['data-destination']['DOWNLOADS_DIR'])):
         downloadSuccess = False
 
-    packageSrc = Path(config.PACKAGE_DIR).joinpath(scanUniqueID)
-    packageDst = Path(config.DOWNLOADS_DIR).joinpath(scanUniqueID)
+    packageSrc = Path(config['data-destination']['PACKAGE_DIR']).joinpath(scanUniqueID)
+    packageDst = Path(config['data-destination']['DOWNLOADS_DIR']).joinpath(scanUniqueID)
     if not Path.is_dir(packageSrc):
         downloadSuccess = False
 
